@@ -1,0 +1,2 @@
+C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Completed Code\Simple Calculator\Debug\Simple Calculator.exe
+C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Completed Code\Simple Calculator\Debug\Simple Calculator.pdb
