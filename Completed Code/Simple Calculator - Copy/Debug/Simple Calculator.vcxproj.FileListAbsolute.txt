@@ -2,3 +2,5 @@ C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Co
 C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Completed Code\Simple Calculator\Debug\Simple Calculator.pdb
 C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Completed Code\Simple Calculator - Copy\Debug\Simple Calculator.exe
 C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Completed Code\Simple Calculator - Copy\Debug\Simple Calculator.pdb
+C:\Users\the2n\Documents\GitHub\University-Code\Completed Code\Simple Calculator - Copy\Debug\Simple Calculator.exe
+C:\Users\the2n\Documents\GitHub\University-Code\Completed Code\Simple Calculator - Copy\Debug\Simple Calculator.pdb

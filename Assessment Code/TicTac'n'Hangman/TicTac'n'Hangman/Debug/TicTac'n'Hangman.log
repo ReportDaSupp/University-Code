@@ -1,4 +1,0 @@
-﻿  TicTac'n'Hangman.cpp
-C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Assessment Code\TicTac'n'Hangman\TicTac'n'Hangman\TicTac'n'Hangman.cpp(151,26): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Assessment Code\TicTac'n'Hangman\TicTac'n'Hangman\TicTac'n'Hangman.cpp(159,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  TicTac'n'Hangman.vcxproj -> C:\Users\the2n\OneDrive\Desktop\Uni Things\C++ Programming\Visual Studio Code\Assessment Code\TicTac'n'Hangman\Debug\TicTac'n'Hangman.exe

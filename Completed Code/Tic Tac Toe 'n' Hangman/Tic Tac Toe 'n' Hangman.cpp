@@ -1,21 +1,24 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <windows.h>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <stdlib.h>
 #include <conio.h>
+#include <vector>
+#include <stack>
+#include <string>
+#include <utility>
+#include <algorithm>
+#include <chrono>
+#include <stdio.h>
 #include <ctime>
 #include <iomanip>
 #include <ctype.h>
 #include <cstdlib>
 #include <locale.h>
+#include <math.h>
 
 using namespace std;
-
-typedef struct
-{
-	char acName[20];
-	string sGame;
-} st_Player;
 
 void SetColor(int color)
 {
@@ -54,69 +57,57 @@ void Title(string sCurrentTitle)
 void PrintScoreboard()
 {
 	Title("Welcome To The Scoreboard!");
-	FILE* Scoreboard = fopen("scoreboard.txt", "r");
-	int iCounter = 0;
-
-	char cText[40];
-	bool bValidPart = false;
-
-	if (Scoreboard == NULL) {
-		printf("\nError, Cant Find The Scoreboard\n");
-		return;
-	}
-
-	for (int i = 0; i >= 10; i++)
+	ifstream ScoreboardR;
+	ScoreboardR.open("Scoreboard.txt");
+	string line;
+	stack<string> sStack;
+	int i = 0;
+	cout << endl << endl << endl;
+	while (!ScoreboardR.eof() && i < 10)
 	{
-		fgets(cText, 100, Scoreboard);
-		if (cText[i] == NULL) iCounter++;
-		else
-		{
-			cout << "Name: ";
-			for (int i = 0; i < 40; i++)
-			{
-				if (bValidPart != true)
-				{
-					if (cText[i] == ' ')
-					{
-						bValidPart = true;
-						cout << " Game: ";
-					}
-					else
-					{
-						cout << cText[i];
-					}
-				}
-				else
-				{
-					cout << cText[i];
-				}
-			}
-		}
-		if (iCounter > 9) break;
-		iCounter++;
+		getline(ScoreboardR, line);
+		cout << "	Win: " << line << endl << endl << endl;
+		i++;
 	}
-	cout << endl;
-	fclose(Scoreboard);
 	_getch();
 
 }
 
 void AddToScoreboard(string sCurrentGame)
 {
-	FILE* Scoreboard = fopen("Scoreboard.txt", "a");
-	string sName;
-	cout << endl << "Enter Player Name: ";
-	cin >> sName;
-
-	string sText = sName + " " + sCurrentGame;
-	char acText[40];
-	for (int i = 0; i < sText.length(); i++)
+	string sPlayerName;
+	cout << endl << "Enter Winner's Name: ";
+	cin >> sPlayerName;
+	string pScoreboard[10];
+	ifstream ScoreboardR;
+	ScoreboardR.open("Scoreboard.txt");
+	string line;
+	stack<string> sStack;
+	int i = 0;
+	while (!ScoreboardR.eof() && i < 10)
 	{
-		if (isalpha(sText[i]) || sText[i] == ' ') acText[i] = sText[i];
-		else acText[i] = NULL;
+		getline(ScoreboardR, line);
+		sStack.push(line);
+		i++;
 	}
-	fprintf(Scoreboard, "%s\n",acText);
-	fclose(Scoreboard);
+	for (int i = 9; i >= 0; i--)
+	{
+		if (!sStack.empty())
+		{
+			pScoreboard[i] = sStack.top();
+			sStack.pop();
+		}
+	}
+	ScoreboardR.close();
+	ofstream Scoreboard;
+	Scoreboard.open("Scoreboard.txt");
+	Scoreboard << (sPlayerName + " " + sCurrentGame);
+	for (int i = 0; i < 10; i++)
+	{
+		if (!pScoreboard[i].empty())
+			Scoreboard << endl << (pScoreboard[i]);
+	}
+	Scoreboard.close();
 }
 
 void DrawBoard(char acBoard[3][3])
@@ -187,34 +178,32 @@ bool CheckWin(char acBoard[3][3], char cWin)
 int MiniMax(char acBoard[3][3], char cPlayer) 
 {
 
-	if (CheckWin(acBoard, 'X')) // if X Wins Return -1 saying Score Will Decrease
+	if (CheckWin(acBoard, 'X'))
 	{ 
-		return -1; 
+		return 1;
 	}
-
-	if (CheckWin(acBoard, 'O')) // if O Wins Return -1 saying Score Will Decrease
-	{ 
-		return 1; 
+	else if (CheckWin(acBoard, 'O'))
+	{
+		return -1;
 	}
-
+	
 	int iMoveA = -1;
 	int iMoveB = -1;
 	int iValue = -2;
-	int iTempScore2 = 0;
 	for (int i = 0; i < 3; ++i) 
 	{
 		for (int j = 0; j < 3; j++) 
 		{
 			if (acBoard[i][j] != 'X' && acBoard[i][j] != 'O') // loop through every Non X or O Assigned Locations on the board
 			{
-				char cTemp = acBoard[i][j]; // On The first avaliable square save the current char
+				char cTemp = acBoard[i][j]; // On The Current Square Save The Current Char
 				acBoard[i][j] = cPlayer; // Set The Current Char Equal To The Players Turn Who is Being Estimated For
 				if (cPlayer == 'X') { cPlayer = 'O'; } // Swap The Current Player
 				else if (cPlayer == 'O') { cPlayer = 'X'; } // Still Swapping Player
-				iTempScore2 = -MiniMax(acBoard, cPlayer); // Recursively Calling The Function using The Other Player Char - Its Negative that way every Rotation you Get Good For O, Bad For X
-					if (iTempScore2 > iValue)  // If It Returns A Strong Score Update Value
+				int iTempScore = -MiniMax(acBoard, cPlayer); // Recursively Calling The Function using The Other Player Char - Its Negative that way every Rotation you Get Good For O, Bad For X
+					if (iTempScore > iValue)  // If It Returns A Strong Score Update Value
 				{
-					iValue = iTempScore2; // Value equals Score
+					iValue = iTempScore; // Value equals Score
 					iMoveA = i; // Currently assigned Move = Current Grid Choice
 					iMoveB = j; // Currently assigned Move = Current Grid Choice
 				}
@@ -231,7 +220,6 @@ void ComputerMove(char acBoard[3][3], char cPlayer)
 	int iMove1 = -1; //Making The Initial Moves Equal To An Unassignable Value So I Can Tell If It Can Make A Move
 	int iMove2 = -1;
 	int iScore = -2; // Making The Initial Score Bad So It Will Choose To Make A Move Even If It Leads To Player Victory
-	int iTempScore1;
 	for (int i = 0; i < 3; i++) 
 	{
 		for (int j = 0; j < 3; j++) 
@@ -240,10 +228,11 @@ void ComputerMove(char acBoard[3][3], char cPlayer)
 			{
 				char cTemp = acBoard[i][j]; 
 				acBoard[i][j] = 'O';
-				iTempScore1 = -MiniMax(acBoard, 'X');
+				int iTempScore = -MiniMax(acBoard, 'X');
 				acBoard[i][j] = cTemp;
-				if (iTempScore1 > iScore) {
-					iScore = iTempScore1;
+				if (iTempScore > iScore) 
+				{
+					iScore = iTempScore;
 					iMove1 = i;
 					iMove2 = j;
 				}
@@ -637,40 +626,39 @@ void Hangman()
 	_getch();
 }
 
-int g_iHorizontalSlide = 2;
-int g_iVerticalSlide = 3;
-
 void Move(char dir, char acBoard[4][4])
 {
-	int iHorizontal = g_iHorizontalSlide;
-	int iVertical = g_iVerticalSlide;	
+	int iHorizontalSlide = 2;
+	int iVerticalSlide = 3;
+	int iHorizontal = iHorizontalSlide;
+	int iVertical = iVerticalSlide;	
 
 	if (iVertical + 1 < 4 && iVertical >= 0 && dir == 'U') {
 
-		acBoard[g_iVerticalSlide][g_iHorizontalSlide] = acBoard[g_iVerticalSlide + 1][g_iHorizontalSlide];
-		acBoard[g_iVerticalSlide + 1][g_iHorizontalSlide] = ' ';
-		g_iVerticalSlide += 1;
+		acBoard[iVerticalSlide][iHorizontalSlide] = acBoard[iVerticalSlide + 1][iHorizontalSlide];
+		acBoard[iVerticalSlide + 1][iHorizontalSlide] = ' ';
+		iVerticalSlide += 1;
 	}
 
 	if (iVertical + 1 <= 4 && iVertical > 0 && dir == 'D') {
 
-		acBoard[g_iVerticalSlide][g_iHorizontalSlide] = acBoard[g_iVerticalSlide - 1][g_iHorizontalSlide];
-		acBoard[g_iVerticalSlide - 1][g_iHorizontalSlide] = ' ';
-		g_iVerticalSlide -= 1;
+		acBoard[iVerticalSlide][iHorizontalSlide] = acBoard[iVerticalSlide - 1][iHorizontalSlide];
+		acBoard[iVerticalSlide - 1][iHorizontalSlide] = ' ';
+		iVerticalSlide -= 1;
 	}
 
 	if (iHorizontal + 1 < 4 && iHorizontal >= 0 && dir == 'L') {
 
-		acBoard[g_iVerticalSlide][g_iHorizontalSlide] = acBoard[g_iVerticalSlide][g_iHorizontalSlide + 1];
-		acBoard[g_iVerticalSlide][g_iHorizontalSlide + 1] = ' ';
-		g_iHorizontalSlide += 1;
+		acBoard[iVerticalSlide][iHorizontalSlide] = acBoard[iVerticalSlide][iHorizontalSlide + 1];
+		acBoard[iVerticalSlide][iHorizontalSlide + 1] = ' ';
+		iHorizontalSlide += 1;
 	}
 
 	if (iHorizontal + 1 <= 4 && iHorizontal > 0 && dir == 'R') {
 
-		acBoard[g_iVerticalSlide][g_iHorizontalSlide] = acBoard[g_iVerticalSlide][g_iHorizontalSlide - 1];
-		acBoard[g_iVerticalSlide][g_iHorizontalSlide - 1] = ' ';
-		g_iHorizontalSlide -= 1;
+		acBoard[iVerticalSlide][iHorizontalSlide] = acBoard[iVerticalSlide][iHorizontalSlide - 1];
+		acBoard[iVerticalSlide][iHorizontalSlide - 1] = ' ';
+		iHorizontalSlide -= 1;
 	}
 
 }
@@ -743,7 +731,7 @@ void Fifteen()
 			}
 			else
 			{
-				cout << "W - Up, S - Down, A - Left, D - Right" << endl;
+				cout << "W - Up, S - Down, A - Left, D - Right, Q - Quit" << endl;
 			}
 			switch (_getch())
 			{
@@ -766,12 +754,18 @@ void Fifteen()
 			case 'd':
 				Move('R', acBoard);
 				break;
+			
+			case 'Q':
+			case 'q':
+				bPlay = true;
+				break;
 
 			default:
 				break;
 
 			}
 		};
+		Title("Fifteen Game Completed - Press Any Key");
 		_getch();
 	}
 
