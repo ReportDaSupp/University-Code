@@ -1,9 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Term 1",
+    "\\Term 1\\Assessment Code",
+    "\\Term 1\\Completed Code",
+    "\\Term 1\\Completed Code\\Tic Tac Toe 'n' Hangman",
+    "\\Term 1\\Completed Code\\TicTac'n'Hangman",
+    "\\Term 1\\Completed Code\\TicTacSio",
     "\\Term 2",
-    "\\Term 2\\Lab Code"
+    "\\Term 2\\Lab Code",
+    "\\Term 2\\Lab Code\\Week 2 Code",
+    "\\Term 2\\Lab Code\\Week 2 Code\\Time of Day"
   ],
-  "SelectedNode": "\\Term 2",
+  "SelectedNode": "\\Term 1\\Completed Code\\DOxygen",
   "PreviewInSolutionExplorer": false
 }
