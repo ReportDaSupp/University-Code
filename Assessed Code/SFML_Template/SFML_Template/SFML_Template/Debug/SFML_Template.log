@@ -1,0 +1,42 @@
+﻿  Game.cpp
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(31,85): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(31,58): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(46,87): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(46,58): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(56,88): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(56,58): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(95,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(107,120): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(148,20): warning C4018: '<': signed/unsigned mismatch
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(161,21): warning C4018: '<': signed/unsigned mismatch
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(173,21): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(189,15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(195,15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(216,16): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+  main.cpp
+  Generating Code...
+  SFML_Template.vcxproj -> E:\University-Code\Assessed Code\SFML_Template\SFML_Template\Debug\SFML_Template.exe
