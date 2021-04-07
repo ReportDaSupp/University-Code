@@ -31,12 +31,10 @@ E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\G
           ]
 E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(95,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(107,120): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(148,20): warning C4018: '<': signed/unsigned mismatch
-E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(161,21): warning C4018: '<': signed/unsigned mismatch
-E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(173,21): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(189,15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(195,15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(216,16): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-  main.cpp
-  Generating Code...
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(153,20): warning C4018: '<': signed/unsigned mismatch
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(166,21): warning C4018: '<': signed/unsigned mismatch
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(178,21): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(194,15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(200,15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+E:\University-Code\Assessed Code\SFML_Template\SFML_Template\SFML_Template\src\Game.cpp(221,16): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
   SFML_Template.vcxproj -> E:\University-Code\Assessed Code\SFML_Template\SFML_Template\Debug\SFML_Template.exe

@@ -60,6 +60,11 @@ void Game::initBullets()
 	this->Bullet.setOutlineThickness(1.f);
 }
 
+void Game::initShields()
+{
+
+}
+
 
 //Constructors
 Game::Game()
@@ -79,11 +84,6 @@ Game::~Game()
 const bool Game::getWindowIsOpen() const
 {
 	return this->window->isOpen();
-}
-
-void Game::initShields()
-{
-
 }
 
 void Game::spawnEnemy()
@@ -116,6 +116,11 @@ void Game::spawnBullet()
 	this->Bullet.setFillColor(sf::Color::Red);
 	this->Bullet.setOutlineColor(sf::Color::Black);
 	this->Bullets.push_back(this->Bullet);
+}
+
+void Game::spawnShield()
+{
+
 }
 
 
@@ -216,11 +221,6 @@ void Game::UpdateBullet()
 		float height = this->videoMode.height;
 		e.move(0.f, -(height / 150));
 	}
-}
-
-void Game::spawnShield()
-{
-
 }
 
 void Game::UpdateShields()
